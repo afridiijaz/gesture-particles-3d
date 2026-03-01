@@ -30,7 +30,31 @@
   <div id="ui-overlay">
     <div id="title-bar">
       <h1>✨ ParticleMancer</h1>
+      <p id="subtitle">Real-time 3D particle system — controlled by your hands</p>
       <p id="gesture-status">Show your hand to the camera...</p>
+    </div>
+
+    <!-- About / Description panel -->
+    <div id="about-panel">
+      <div id="about-content">
+        <span id="about-close">✕</span>
+        <h2>About ParticleMancer</h2>
+        <p>
+          ParticleMancer is an interactive 3D particle experience built with
+          <strong>Three.js</strong> and <strong>MediaPipe Hands</strong>.
+          It uses your webcam to detect hand gestures in real time and
+          translates them into stunning visual effects.
+        </p>
+        <ul>
+          <li>🎨 <strong>8 particle shapes</strong> — Heart, Flower, Saturn, Firework, Spiral, Star, DNA, Galaxy</li>
+          <li>🌈 <strong>7 colour themes</strong> — Rainbow, Fire, Ocean, Neon, Gold, Aurora, Sakura</li>
+          <li>🖐 <strong>5 gesture controls</strong> — Expand, Compress, Attract, Resize, Cycle shapes</li>
+          <li>🎮 <strong>Orbit controls</strong> — Click & drag to rotate the scene</li>
+          <li>⌨️ <strong>Keyboard shortcuts</strong> — Keys 1–8 switch shapes, Space randomises colours</li>
+        </ul>
+        <p class="about-footer">Built with pure vanilla JavaScript — no frameworks, no build tools.</p>
+      </div>
+      <button id="about-toggle">ℹ️ About</button>
     </div>
 
     <div id="shape-selector">

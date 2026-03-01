@@ -117,12 +117,133 @@ body {
   letter-spacing: 3px;
 }
 
-#gesture-status {
+#subtitle {
   margin-top: 6px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+#gesture-status {
+  margin-top: 5px;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 300;
   transition: all 0.3s ease;
+}
+
+/* ---- About Panel ---- */
+#about-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+#about-toggle {
+  padding: 8px 16px;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 25px;
+  background: rgba(168, 85, 247, 0.12);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+#about-toggle:hover {
+  background: rgba(168, 85, 247, 0.3);
+  border-color: #a855f7;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+#about-content {
+  display: none;
+  position: relative;
+  width: 320px;
+  padding: 20px;
+  background: rgba(10, 10, 25, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: fadeSlideIn 0.25s ease;
+}
+
+#about-content.visible {
+  display: block;
+}
+
+#about-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.2s;
+}
+
+#about-close:hover {
+  color: #fff;
+}
+
+#about-content h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  color: #a855f7;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+#about-content p {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+#about-content p strong {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#about-content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+#about-content li {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+#about-content li strong {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.about-footer {
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 #gesture-status.active {

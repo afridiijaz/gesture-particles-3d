@@ -409,6 +409,18 @@
       toggleBtn.textContent = guideVisible ? 'Hide Guide' : 'Show Guide';
     });
 
+    // About panel toggle
+    const aboutToggle  = document.getElementById('about-toggle');
+    const aboutContent = document.getElementById('about-content');
+    const aboutClose   = document.getElementById('about-close');
+
+    aboutToggle.addEventListener('click', () => {
+      aboutContent.classList.toggle('visible');
+    });
+    aboutClose.addEventListener('click', () => {
+      aboutContent.classList.remove('visible');
+    });
+
     // Resize
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;

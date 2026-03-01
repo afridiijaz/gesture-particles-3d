@@ -2,6 +2,10 @@
 
 > A real-time interactive 3D particle system powered by **Three.js** and **MediaPipe Hands** — control beautiful particle formations with your bare hands!
 
+**Repo name:** `particlemancer`
+**Description:** `✨ Real-time 3D particle system controlled by hand gestures — built with Three.js & MediaPipe Hands`
+**Topics:** `threejs` `mediapipe` `hand-tracking` `particles` `webgl` `javascript` `3d` `gesture-control`
+
 ![Three.js](https://img.shields.io/badge/Three.js-r152-black?logo=three.js)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-Hands-blue?logo=google)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -46,31 +50,56 @@
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### Prerequisites
+- A modern browser — **Chrome or Edge recommended** (best WebGL + webcam support)
+- A webcam (optional — hand tracking is a bonus feature; the app works without it)
+- Node.js installed (for the `npx serve` method below)
+
+---
+
+### ▶️ Method 1 — VS Code Live Server (Easiest, no install needed)
+
+1. Open the project folder in **VS Code**
+2. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension
+3. Right-click `index.html` in the Explorer panel
+4. Click **"Open with Live Server"**
+5. Your browser will open automatically at `http://127.0.0.1:5500`
+
+---
+
+### ▶️ Method 2 — npx serve (Quick terminal method)
 
 ```bash
+# Clone the repo
 git clone https://github.com/YOUR_USERNAME/particlemancer.git
 cd particlemancer
+
+# Serve it instantly — no install required
+npx serve . -l 3000
 ```
 
-### 2. Serve locally
+Then open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-Since this project uses webcam access (requires HTTPS or localhost), use any local server:
+---
+
+### ▶️ Method 3 — Python (if you have Python installed)
 
 ```bash
-# Using Python
-python -m http.server 8000
+# Python 3
+python -m http.server 3000
 
-# Using Node.js (npx)
-npx serve .
-
-# Using VS Code
-# Install "Live Server" extension → Right-click index.html → "Open with Live Server"
+# Python 2
+python -m SimpleHTTPServer 3000
 ```
 
-### 3. Open in browser
+Then open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-Navigate to `http://localhost:8000` and **allow camera access** when prompted.
+---
+
+### ⚠️ Important
+- **Do NOT open `index.html` directly** as a `file://` URL — browsers block camera access on `file://` origins. Always use a local server (`http://localhost`).
+- When prompted, click **"Allow"** to grant camera access for hand tracking.
+- If you deny camera access, the app still works fully — use the **buttons and sliders** instead.
 
 ---
 
