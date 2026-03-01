@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParticleMancer — 3D Hand-Gesture Particle System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Three.js (r128 — stable global build with OrbitControls support) -->
+  <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+  <!-- OrbitControls (examples/js still shipped in r128, attaches to THREE) -->
+  <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- MediaPipe Hands -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.min.js"></script>
+</head>
+<body>
+  <!-- 3D Canvas -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Webcam feed (hidden, used by MediaPipe) -->
+  <video id="webcam" autoplay playsinline></video>
+
+  <!-- Camera preview -->
+  <div id="camera-preview">
+    <canvas id="hand-canvas"></canvas>
+    <div id="camera-label">🖐 Hand Tracking</div>
+  </div>
+
+  <!-- UI Overlay -->
+  <div id="ui-overlay">
+    <div id="title-bar">
+      <h1>✨ ParticleMancer</h1>
+      <p id="gesture-status">Show your hand to the camera...</p>
+    </div>
+
+    <div id="shape-selector">
+      <button class="shape-btn active" data-shape="heart">❤️ Heart</button>
+      <button class="shape-btn" data-shape="flower">🌸 Flower</button>
+      <button class="shape-btn" data-shape="saturn">🪐 Saturn</button>
+      <button class="shape-btn" data-shape="firework">🎆 Firework</button>
+      <button class="shape-btn" data-shape="spiral">🌀 Spiral</button>
+      <button class="shape-btn" data-shape="star">⭐ Star</button>
+      <button class="shape-btn" data-shape="dna">🧬 DNA</button>
+      <button class="shape-btn" data-shape="galaxy">🌌 Galaxy</button>
+    </div>
+
+    <div id="controls-panel">
+      <div class="control-group">
+        <label>Particle Count</label>
+        <input type="range" id="particle-count" min="500" max="15000" value="5000" />
+        <span id="count-val">5000</span>
+      </div>
+      <div class="control-group">
+        <label>Particle Size</label>
+        <input type="range" id="particle-size" min="1" max="20" value="5" step="0.5" />
+        <span id="size-val">5</span>
+      </div>
+      <div class="control-group">
+        <label>Rotation Speed</label>
+        <input type="range" id="rotation-speed" min="0" max="100" value="30" />
+        <span id="rot-val">30</span>
+      </div>
+      <div class="control-group">
+        <label>Color Theme</label>
+        <select id="color-theme">
+          <option value="rainbow">🌈 Rainbow</option>
+          <option value="fire">🔥 Fire</option>
+          <option value="ocean">🌊 Ocean</option>
+          <option value="neon">💜 Neon</option>
+          <option value="gold">✨ Gold</option>
+          <option value="aurora">🌌 Aurora</option>
+          <option value="sakura">🌸 Sakura</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="gesture-guide">
+      <h3>🤚 Gesture Controls</h3>
+      <ul>
+        <li>✊ <strong>Fist</strong> — Compress particles</li>
+        <li>🖐 <strong>Open Hand</strong> — Expand particles</li>
+        <li>✌️ <strong>Peace / Two</strong> — Next shape</li>
+        <li>👆 <strong>Point</strong> — Attract to finger</li>
+        <li>🤏 <strong>Pinch</strong> — Change size</li>
+      </ul>
+      <button id="toggle-guide">Hide Guide</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/particleTemplates.js"></script>
+  <script src="js/handTracking.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
