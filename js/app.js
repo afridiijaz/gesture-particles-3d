@@ -421,6 +421,42 @@
       aboutContent.classList.remove('visible');
     });
 
+    // ── Mobile FAB & Drawer ──────────────────────────────────
+    const mobileFab      = document.getElementById('mobile-fab');
+    const backdrop       = document.getElementById('mobile-backdrop');
+    const controlsPanel  = document.getElementById('controls-panel');
+
+    function openDrawer() {
+      controlsPanel.classList.add('drawer-open');
+      backdrop.classList.add('visible');
+      mobileFab.classList.add('active');
+      mobileFab.textContent = '✕';
+    }
+
+    function closeDrawer() {
+      controlsPanel.classList.remove('drawer-open');
+      backdrop.classList.remove('visible');
+      mobileFab.classList.remove('active');
+      mobileFab.textContent = '⚙️';
+    }
+
+    mobileFab.addEventListener('click', () => {
+      controlsPanel.classList.contains('drawer-open') ? closeDrawer() : openDrawer();
+    });
+
+    backdrop.addEventListener('click', closeDrawer);
+
+    // swipe down on controls panel to close
+    let touchStartY = 0;
+    controlsPanel.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    controlsPanel.addEventListener('touchmove', (e) => {
+      const dy = e.touches[0].clientY - touchStartY;
+      if (dy > 60) closeDrawer();
+    }, { passive: true });
+
     // Resize
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
